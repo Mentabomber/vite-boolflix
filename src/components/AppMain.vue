@@ -11,9 +11,24 @@ export default{
 </script>
 
 <template>
-  <AppMovieCard />
+  <main>
+    <div class="cards-container">
+      <AppMovieCard />
+    </div>
+  </main>
+
+  
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+main{
+  background-color: rgb(67,67,67);
+}
+  .cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+  }
 
 </style>
