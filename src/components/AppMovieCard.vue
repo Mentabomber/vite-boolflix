@@ -2,9 +2,13 @@
 
 import { store } from '../store.js';
 
+import AppStarRatingCreator from './AppStarRatingCreator.vue';
+
+
 export default {
-  components: {
     name: "AppMovieCard",
+    components: {
+    AppStarRatingCreator
   },
   data(){
     return{
@@ -30,7 +34,8 @@ methods: {
         let roundedUp = Math.ceil(intVote / 2)
         return roundedUp;
         
-    }
+},
+
 }
 };
 </script>
@@ -39,11 +44,12 @@ methods: {
     <!-- così facendo trovo solo la prima pagina, nel caso volessi trovare più pagine devo prendere fuori il numero di pagine trovate e usarlo in un for per ciclare tutti i film nelle pagine trovate -->
     <!-- <h2>MOVIES</h2> -->
     <div class="container" v-for="movie in store.movieList.results">
+
         <img class="poster" :src="store.imgBaseLink + movie.poster_path" alt="">
         <span>Titolo: {{ movie.title || movie.name }}</span>
         <span>Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
         <span>Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
-        <span>Voto: {{ convertVote(movie.vote_average) }}</span>
+        <span>Voto: <AppStarRatingCreator :finalVote="convertVote(movie.vote_average)"/></span>
         
     </div>
 
