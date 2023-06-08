@@ -12,7 +12,7 @@ export default{
     },
     methods:{
         getMovies(){
-            let myUrl = store.apiURLSearchMovie;
+            let myUrl = store.apiURLMultiSearch;
 
             myUrl += store.searchText;
             console.log(myUrl);
