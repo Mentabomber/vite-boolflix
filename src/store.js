@@ -7,19 +7,19 @@ export const store = reactive({
     flags: [
         {
             language: "it",
-            flagImg: "../assets/it.svg"
+            flagImg: "it.webp"
         },
         {
             language: "pt",
-            flagImg: "../assets/pt.svg"
+            flagImg: "pt.webp"
         },
         {
             language: "es",
-            flagImg: "../es.svg"
+            flagImg: "sp.webp"
         },
         {
             language: "en",
-            flagImg: "../assets/en.svg"
+            flagImg: "en.webp"
         }
      ],
     movieList: [],
