@@ -22,6 +22,7 @@ export const store = reactive({
             flagImg: "en.webp"
         }
      ],
+    imgBaseLink: "https://image.tmdb.org/t/p/w342",
     movieList: [],
     showsList: [],
     searchText: "",

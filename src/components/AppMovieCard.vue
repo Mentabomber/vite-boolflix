@@ -25,7 +25,12 @@ methods: {
         });
         return flagSelected;
       
-}
+},
+    convertVote(intVote) {
+        let roundedUp = Math.ceil(intVote / 2)
+        return roundedUp;
+        
+    }
 }
 };
 </script>
@@ -34,11 +39,11 @@ methods: {
     <!-- così facendo trovo solo la prima pagina, nel caso volessi trovare più pagine devo prendere fuori il numero di pagine trovate e usarlo in un for per ciclare tutti i film nelle pagine trovate -->
     <!-- <h2>MOVIES</h2> -->
     <div class="container" v-for="movie in store.movieList.results">
-        <span> poster</span>
+        <img class="poster" :src="store.imgBaseLink + movie.poster_path" alt="">
         <span>Titolo: {{ movie.title || movie.name }}</span>
         <span>Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
-        <span>Lingua: <img :src="getFlagEmoji(movie.original_language)" alt=""></span>
-        <span>Voto: {{ movie.vote_average }}</span>
+        <span>Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
+        <span>Voto: {{ convertVote(movie.vote_average) }}</span>
         
     </div>
 
@@ -57,16 +62,20 @@ methods: {
 </template>
 
 <style lang="scss" scoped>
-    .container {
+.poster{
+    width: 100%;
+    height: 70%;
+}
+.container {
         width: calc(100% / 5 - 44px);
         padding: 20px;
         margin: 20px;
         text-align: center;
         background-color: black;
         color: white;
-        img{
+        .flags{
             width: 20px;
-            height: 20px;
+            height: 15px;
         }
         span{
             display: block;
