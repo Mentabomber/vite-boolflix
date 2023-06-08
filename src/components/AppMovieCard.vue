@@ -13,11 +13,18 @@ export default {
 },
 methods: {
     getFlagEmoji(countryCode) {
-        const codePoints = countryCode
-        .toUpperCase()
-        .split('')
-        .map(char =>  127397 + char.charCodeAt());
-        return String.fromCodePoint(...codePoints);
+        let flagSelected;
+        const movieLanguage = countryCode
+        // .toUpperCase()
+        store.flags.forEach(flag => {
+            console.log(flag,flag.language,movieLanguage);
+
+            if(movieLanguage === flag.language){
+            return flagSelected = flag.flagImg;
+        }
+        });
+        return flagSelected;
+      
 }
 }
 };
@@ -30,7 +37,7 @@ methods: {
         
         <span>Titolo: {{ movie.title || movie.name }}</span>
         <span>Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
-        <span>Lingua: {{ getFlagEmoji(movie.original_language) }}</span>
+        <span>Lingua: <img :src="getFlagEmoji(movie.original_language)"   alt=""></span>
         <span>Voto: {{ movie.vote_average }}</span>
         
     </div>
@@ -57,6 +64,10 @@ methods: {
         text-align: center;
         background-color: black;
         color: white;
+        img{
+            width: 20px;
+            height: 20px;
+        }
         span{
             display: block;
         }
