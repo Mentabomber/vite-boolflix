@@ -53,6 +53,7 @@ methods: {
             <span>Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
             <span>Voto: <AppStarRatingCreator  :finalVote="convertVote(movie.vote_average)"/></span>
             <span>Overview: {{ movie.overview }} </span>
+            <!-- <span>Overview: {{ movie.overview }} </span> -->
         </div>
     </div>
 
@@ -67,7 +68,7 @@ methods: {
         <span>Voto: {{ show.vote_average }}</span>
         
     </div> -->
-    <pre>{{ store.showsList }}</pre>
+
 </template>
 
 <style lang="scss" scoped>
@@ -76,8 +77,14 @@ methods: {
     height: 100%;
 }
 .card-description {
+        height: 100%;
         display: none;
         overflow-y: auto;
+        text-align: start;
+        span {
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
     }   
 .container:hover{
     .card-poster{
@@ -88,7 +95,9 @@ methods: {
 }
 .container {
         width: calc(100% / 5 - 44px);
-        min-height: 680px;
+        
+        min-height: calc(100% / 5 - 44px);
+        height: 600px;
         padding: 20px;
         margin: 20px;
         text-align: center;

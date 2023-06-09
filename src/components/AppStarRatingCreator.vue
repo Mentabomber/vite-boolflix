@@ -18,7 +18,7 @@ export default{
 </script>
 
 <template>
-prima idea
+<!-- prima idea -->
 <div v-if="finalVote === 0">
     <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
     <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
