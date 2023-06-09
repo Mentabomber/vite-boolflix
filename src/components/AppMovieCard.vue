@@ -2,6 +2,8 @@
 
 import { store } from '../store.js';
 
+import axios from 'axios';
+
 import AppStarRatingCreator from './AppStarRatingCreator.vue';
 
 
@@ -34,7 +36,17 @@ methods: {
         let roundedUp = Math.ceil(intVote / 2)
         return roundedUp;
         
-}
+},
+    getActors(movieId){
+        store.selectedMovieId = movieId;
+        let myUrl = store.apiActors;
+        axios.get(myUrl)
+        .then((res) => {
+            store.getActorsList = res.data.cast.original_name;
+            console.log(res.data);
+
+        })
+    }
 }
 };
 </script>
@@ -47,12 +59,13 @@ methods: {
             <img class="poster" :src="store.imgBaseLink + movie.poster_path" alt="">
         </div>
         <div class="card-description">
-            <span >Titolo: {{ movie.title || movie.name }}</span>
-            <span>Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
-            <span style="display: block;">Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
+            <span style="display: block;" >Titolo: {{ movie.title || movie.name }}</span>
+            <span style="display: block;">Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
+            <span style="display: block;">Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt="img_non_disponibile"></span>
             <div style="padding-bottom: 10px;">
                 <span>Voto: <AppStarRatingCreator v-for="i in 5" :indice=i :finalVote="convertVote(movie.vote_average)"/></span>
             </div>
+            <span>Attori: {{ getActors(movie.id) }}</span>
             <span>Overview: {{ movie.overview }} </span>
             <!-- <span>Overview: {{ movie.overview }} </span> -->
         </div>
