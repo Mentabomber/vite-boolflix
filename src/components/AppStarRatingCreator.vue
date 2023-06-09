@@ -18,56 +18,70 @@ export default{
 </script>
 
 <template>
-<div v-if="this.finalVote === 0">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
+prima idea
+<div v-if="finalVote === 0">
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
 </div>
-<div v-else-if="this.finalVote === 1">
-    <img src="star-solid" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
-</div>
-
-<div v-else-if="this.finalVote === 2">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
+<div v-else-if="finalVote === 1">
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
 </div>
 
-<div v-else-if="this.finalVote === 3">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-regular" alt="">
-    <img src="star-regular" alt="">
+<div v-else-if="finalVote === 2">
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
 </div>
 
-<div v-else-if="this.finalVote === 4">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-regular" alt="">
+<div v-else-if="finalVote === 3">
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
 </div>
 
-<div v-else-if="this.finalVote === 5">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
-    <img src="star-solid" alt="">
+<div v-else-if="finalVote === 4">
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
 </div>
 
+<div v-else-if="finalVote === 5">
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+    <i class="fa-solid fa-star" style="color: #fbdf2d;"></i>
+</div>
+
+
+<!-- seconda idea 
+<div v-if="finalVote === 0">
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+</div>
+
+<div v-else-if="finalVote === 1">
+    <i class="fa-regular fa-star" style="color: #fbdf2d;"></i>
+</div> -->
 
 </template>
 
 <style lang="scss" scoped>
+    img{
+        width: 15px;
+        height: 15px;
 
+    }
 </style>

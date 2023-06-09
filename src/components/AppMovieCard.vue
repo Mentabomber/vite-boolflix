@@ -44,13 +44,16 @@ methods: {
     <!-- così facendo trovo solo la prima pagina, nel caso volessi trovare più pagine devo prendere fuori il numero di pagine trovate e usarlo in un for per ciclare tutti i film nelle pagine trovate -->
     <!-- <h2>MOVIES</h2> -->
     <div class="container" v-for="movie in store.movieList.results">
-
-        <img class="poster" :src="store.imgBaseLink + movie.poster_path" alt="">
-        <span>Titolo: {{ movie.title || movie.name }}</span>
-        <span>Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
-        <span>Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
-        <span>Voto: <AppStarRatingCreator :finalVote="convertVote(movie.vote_average)"/></span>
-        
+        <div class="card-poster">
+            <img class="poster" :src="store.imgBaseLink + movie.poster_path" alt="">
+        </div>
+        <div class="card-description">
+            <span>Titolo: {{ movie.title || movie.name }}</span>
+            <span>Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
+            <span>Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
+            <span>Voto: <AppStarRatingCreator  :finalVote="convertVote(movie.vote_average)"/></span>
+            <span>Overview: {{ movie.overview }} </span>
+        </div>
     </div>
 
     <!-- esperimenti per creare sezione film e serie separate
@@ -70,15 +73,32 @@ methods: {
 <style lang="scss" scoped>
 .poster{
     width: 100%;
-    height: 70%;
+    height: 100%;
+}
+.card-description {
+        display: none;
+        overflow-y: auto;
+    }   
+.container:hover{
+    .card-poster{
+        display: none;}
+    .card-description {
+        display: block;
+    }   
 }
 .container {
         width: calc(100% / 5 - 44px);
+        min-height: 680px;
         padding: 20px;
         margin: 20px;
         text-align: center;
         background-color: black;
         color: white;
+        border: 1px solid white;
+        .card-poster{
+            width: 100%;
+            height: 100%;
+        }
         .flags{
             width: 20px;
             height: 15px;

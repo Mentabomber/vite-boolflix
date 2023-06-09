@@ -27,7 +27,7 @@ main{
   .cards-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
    
   }
 
