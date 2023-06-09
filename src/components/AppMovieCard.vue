@@ -34,8 +34,7 @@ methods: {
         let roundedUp = Math.ceil(intVote / 2)
         return roundedUp;
         
-},
-
+}
 }
 };
 </script>
@@ -43,15 +42,17 @@ methods: {
 <template>
     <!-- così facendo trovo solo la prima pagina, nel caso volessi trovare più pagine devo prendere fuori il numero di pagine trovate e usarlo in un for per ciclare tutti i film nelle pagine trovate -->
     <!-- <h2>MOVIES</h2> -->
-    <div class="container" v-for="movie in store.movieList.results">
+    <div class="container" v-for="movie in store.movieList.results" @click="logCard">
         <div class="card-poster">
             <img class="poster" :src="store.imgBaseLink + movie.poster_path" alt="">
         </div>
         <div class="card-description">
-            <span>Titolo: {{ movie.title || movie.name }}</span>
+            <span >Titolo: {{ movie.title || movie.name }}</span>
             <span>Titolo Originale: {{ movie.original_title || movie.original_name }}</span>
-            <span>Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
-            <span>Voto: <AppStarRatingCreator  :finalVote="convertVote(movie.vote_average)"/></span>
+            <span style="display: block;">Lingua: <img class="flags" :src="getFlagEmoji(movie.original_language)" alt=""></span>
+            <div style="padding-bottom: 10px;">
+                <span>Voto: <AppStarRatingCreator v-for="i in 5" :indice=i :finalVote="convertVote(movie.vote_average)"/></span>
+            </div>
             <span>Overview: {{ movie.overview }} </span>
             <!-- <span>Overview: {{ movie.overview }} </span> -->
         </div>
@@ -112,8 +113,6 @@ methods: {
             width: 20px;
             height: 15px;
         }
-        span{
-            display: block;
-        }
+
     }
 </style>
